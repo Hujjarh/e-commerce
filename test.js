@@ -3,7 +3,7 @@ let cartButton = document.querySelector('#myButton');
 // let displayCart = document.querySelector('.cart');
 let cartItems = document.querySelector('.cartItems'); 
 let cartNum = document.querySelector('#cartNum') 
-
+let removeItem = document.querySelector('.removeItem')
 let cart = []
 
 cartCount = 0;
@@ -82,11 +82,12 @@ function displayCart(){
     cart.forEach(product =>{
     let cartItemDiv = document.createElement('div')
     cartItemDiv.innerHTML += `${product.name}<br>`
-    cartItemDiv.innerHTML += ` ${product.quantity}x &nbsp;&nbsp;&nbsp; @ $${product.price} &nbsp;&nbsp; $${product.price * product.quantity}<hr> `;
+    cartItemDiv.innerHTML += ` ${product.quantity}x &nbsp;&nbsp;&nbsp; @ $${product.price} &nbsp;&nbsp; $${product.price * product.quantity} &nbsp;&nbsp; <span class="removeItem"> <img src ="assets/images/icon-remove-item.svg" /></span><hr> `;
+    // cartItemDiv.innerHTML +=`<span class="removeButton"> <img src ="assets/images/icon-remove-item.svg" /></span>`
     cartItemDiv.style.marginBlock = '20px'
     cartItemDiv.style.paddingInline = '20px'
 
-    addTotal(product.price)
+    let orderTotal = addTotal(product.price)
     cartItems.appendChild(cartItemDiv)      
     })
     
@@ -100,6 +101,8 @@ function addTotal(productPrices){
         ${itemTotal += productPrices}
     `
 }
+// remove cartItem from the cart
+
 
 // Call the function to display products
 productCard();
