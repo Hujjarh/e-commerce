@@ -12,7 +12,7 @@ body{
 header{
     position: relative;
     display: flex;
-    margin-block: 2em;
+    margin-block: 1em;
     padding-inline: 5em;
     justify-content: space-between;
     align-items: center;
@@ -99,7 +99,7 @@ span{
 
 .list .item button{
     position: relative;
-    left: 25%;
+    left: 20%;
     top: -20px;
     display: flex;
     justify-content: center;
@@ -131,14 +131,35 @@ span{
 } 
 
 
+/* media query for screen size 1200px */
+
+@media screen and (max-width:1200px) {
+
+    .list{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 15px;
+        row-gap: 20px;
+        /* border: 2px solid red; */
+    }
+}
+
+
 /* Media queries for screen with with 800px */
 
 @media screen and (max-width:800px) {
     body{
         background-color: red;
     }
-    .container{
-        padding-inline: 0;
+    .container .cart{
+        display: flex;
+        justify-content: flex-end;
+        text-align: start;
+    }
+
+    header{
+        margin-block: 0;
+        padding-inline: 20px;
     }
     .productList{
         padding-inline: 0;
@@ -146,22 +167,44 @@ span{
 
     .list{
         display: grid;
-        grid-template-columns: repeat(2,0fr);
-        column-gap: 15px;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 10px;
         row-gap: 20px;
         /* border: 2px solid red; */
     }
 
+    .list .item .mobile{
+        width: 200px;
+    }
+
     .cart{
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: normal;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        /* margin-top: auto; */
+    }
+
+    .cart h1{
+        text-align: center;
+        position: relative;
+        float: left;
+        left: 2em;
+        width: 50%;
+    }
+    .cartItems{
+        margin-inline-start: 2em;
+    }
+
+    .desktop{
         display: none;
-        /* position: fixed;
-        top: 3em;
-        right: -10em;
-        float: right;
-        background-color: #fff;
-        width: 250px;
-        height: 100vh;
-        border: 2px solid red; */
+    }
+
+    .mobile{
+        display: block;
     }
     
 }
@@ -174,6 +217,21 @@ span{
         background-color: blue;
     }
 
+    .container{
+        flex-direction: column;
+        /* justify-content: flex-end; */
+        /* flex-wrap: wrap; */
+        /* height: 100vh; */
+    }
+    .title{
+        margin-block: 0;
+        padding-inline: 0;    
+    }
+
+    .list .item .mobile{
+        width: 320px;
+    }
+
     .productList{
         padding-inline: 0;
         text-align: center;
@@ -182,6 +240,47 @@ span{
     .list{
         display: flex;
         flex-direction: column;
+    }
+    .cart{
+        position: relative;
+        display: flex;
+        justify-content: start;
+        align-items: normal;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        /* margin-top: auto; */
+    }
+
+    .cart h1{
+        text-align: center;
+        position: relative;
+        float: left;
+        left: 2em;
+        width: 50%;
+    
+    }
+
+    .item .cart-item{
+        text-align: center;
+    }
+
+    .cartItems .emptyCart, .cartItems p{
+    margin-inline: 15px;
+    padding-block: 5px;
+    text-align: center;
+    /* border: 2px solid red; */
+    }
+
+    .cartItems{
+        margin-inline-start: 2em;
+    }
+
+    .mobile{
+        display: block;
+    } 
+    .desktop{
+        display: none;
     }
 }
 
